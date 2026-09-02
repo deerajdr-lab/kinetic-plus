@@ -193,7 +193,7 @@
             formData.append('image', fileInput.files[0]);
 
             try {
-                const response = await fetch('http://localhost:3000/api/add-equipment', {
+                const response = await fetch('/api/add-equipment', {
                     method: 'POST',
                     body: formData
                 });
