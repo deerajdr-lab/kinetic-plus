@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Kinetic Plus</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #1a1a1a;
+        }
+
+        header {
+            background-color: #000;
+            color: white;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 5px solid #0056b3;
+        }
+        
+        header h2 { margin: 0; font-style: italic; font-weight: 900; }
+        header h2 span { color: #0056b3; }
+
+        .admin-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .admin-container h1 {
+            margin-top: 0;
+            color: #0056b3;
+            margin-bottom: 30px;
+        }
+
+        .form-group { margin-bottom: 20px; }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+
+        input[type="file"] {
+            background-color: #f8f9fa;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn {
+            background: #0056b3;
+            color: white;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background 0.2s;
+        }
+
+        .btn:hover { background: #004494; }
+
+        #status-message {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Inventory List Styles */
+        .inventory-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #eaeaea;
+        }
+        .inventory-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 15px;
+        }
+        .inventory-info {
+            flex-grow: 1;
+        }
+        .inventory-info h3 { margin: 0 0 5px 0; font-size: 16px; }
+        .inventory-info p { margin: 0; color: #555; font-size: 14px; }
+        
+        .btn-delete {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn-delete:hover { background: #c82333; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>KINETIC<span>+</span></h2>
+        <div>Admin Panel</div>
+    </header>
+
+    <!-- Upload Form Section -->
+    <div class="admin-container">
+        <h1>Add New Equipment</h1>
+        
+        <form id="add-product-form">
+            <div class="form-group">
+                <label for="product-name">Equipment Name</label>
+                <input type="text" id="product-name" placeholder="e.g., Clinical Ultrasound Therapy Unit" required>
+            </div>
+
+            <div class="form-group">
+                <label for="product-price">Price (₹)</label>
+                <input type="number" id="product-price" placeholder="e.g., 24999" required>
+            </div>
+
+            <div class="form-group">
+                <label for="product-image">Upload Equipment Image</label>
+                <input type="file" id="product-image" accept="image/*" required>
+            </div>
+
+            <div class="form-group">
+                <label for="product-desc">Short Description</label>
+                <textarea id="product-desc" placeholder="Brief details about the machine..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn">Upload to Database</button>
+            <div id="status-message"></div>
+        </form>
+    </div>
+
+    <!-- Inventory Management Section -->
+    <div class="admin-container" style="margin-top: 20px;">
+        <h1>Manage Inventory</h1>
+        <div id="inventory-list">Loading inventory...</div>
+    </div>
+
+    <!-- Custom Node.js Connection Script -->
+    <script>
+        // 1. Upload Logic
+        document.getElementById('add-product-form').addEventListener('submit', async (e) => {
+            e.preventDefault(); 
+            const statusMessage = document.getElementById('status-message');
+            const submitBtn = document.querySelector('.btn');
+            
+            submitBtn.disabled = true;
+            submitBtn.style.background = "#ccc";
+            statusMessage.style.color = '#333';
+            statusMessage.textContent = 'Uploading to local server...';
+
+            const formData = new FormData();
+            formData.append('name', document.getElementById('product-name').value);
+            formData.append('price', document.getElementById('product-price').value);
+            formData.append('description', document.getElementById('product-desc').value);
+            
+            const fileInput = document.getElementById('product-image');
+            formData.append('image', fileInput.files[0]);
+
+            try {
+                const response = await fetch('http://localhost:3000/api/add-equipment', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+
+                statusMessage.style.color = 'green';
+                statusMessage.textContent = result.message;
+                document.getElementById('add-product-form').reset(); 
+                
+                // Refresh the inventory list automatically after a successful upload
+                loadInventory();
+                
+            } catch (error) {
+                console.error("Upload error: ", error);
+                statusMessage.style.color = 'red';
+                statusMessage.textContent = 'Server error. Is node server.js running?';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.style.background = "#0056b3";
+            }
+        });
+
+        // 2. Fetch and Display Logic
+        async function loadInventory() {
+            const inventoryList = document.getElementById('inventory-list');
+            
+            try {
+                const response = await fetch('http://localhost:3000/api/get-equipment');
+                const equipment = await response.json();
+                
+                inventoryList.innerHTML = ''; // Clear loading text
+                
+                if (equipment.length === 0) {
+                    inventoryList.innerHTML = '<p>No equipment in the database.</p>';
+                    return;
+                }
+
+                equipment.forEach(machine => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'inventory-item';
+                    
+                    itemDiv.innerHTML = `
+                        <img src="http://localhost:3000${machine.imageUrl}" alt="${machine.name}">
+                        <div class="inventory-info">
+                            <h3>${machine.name}</h3>
+                            <p>₹${machine.price}/-</p>
+                        </div>
+                        <button class="btn-delete" onclick="deleteEquipment('${machine.imageUrl}')">Delete</button>
+                    `;
+                    inventoryList.appendChild(itemDiv);
+                });
+            } catch (error) {
+                inventoryList.innerHTML = '<p style="color:red;">Error loading inventory. Is the server running?</p>';
+            }
+        }
+
+        // 3. Delete Logic
+        async function deleteEquipment(imageUrl) {
+            if (!confirm("Are you sure you want to delete this equipment? This cannot be undone.")) return;
+
+            try {
+                const response = await fetch('/api/delete-equipment', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ imageUrl: imageUrl })
+                });
+
+                const result = await response.json();
+                alert(result.message);
+                
+                loadInventory(); // Refresh the list
+                
+            } catch (error) {
+                console.error("Delete error: ", error);
+                alert("Error deleting equipment. Check console.");
+            }
+        }
+
+        // 4. Run loadInventory when the page opens
+        window.onload = loadInventory;
+    </script>
+
+</body>
+</html> 

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Ultrasound Therapy Unit | Kinetic Plus</title>
+    <style>
+        /* =========================================
+           1. General, Navigation, and Footer Styles 
+           ========================================= */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #1a1a1a;
+        }
+
+        nav {
+            background-color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 900;
+            font-style: italic;
+            letter-spacing: -1px;
+            color: #000;
+            margin: 0;
+        }
+        
+        .logo-text span {
+            color: #0066cc;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 25px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        
+        .nav-links a:hover {
+            color: #0066cc;
+        }
+
+        footer {
+            background-color: #e6f0f9;
+            padding: 40px 60px 20px 60px;
+            font-size: 13px;
+            color: #333;
+            margin-top: 40px;
+        }
+        
+        .footer-columns {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col {
+            flex: 1;
+            margin-right: 20px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+        }
+
+        /* Generic Button Style */
+        .btn {
+            background: #0066cc;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+        
+        .btn:hover {
+            background: #0052a3;
+        }
+
+        /* =========================================
+           2. Product Detail Page Styles 
+           ========================================= */
+        .product-container {
+            display: flex;
+            max-width: 1000px;
+            margin: 60px auto; 
+            gap: 50px;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        /* Left Side: Media */
+        .product-media {
+            flex: 1; 
+        }
+
+        .main-media img, 
+        .main-media video {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid #eaeaea;
+            object-fit: cover;
+        }
+
+        .thumbnail-gallery {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .thumbnail-gallery img {
+            width: 80px;
+            height: 80px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            object-fit: cover;
+        }
+
+        .thumbnail-gallery img:hover {
+            border: 2px solid #0066cc; 
+        }
+
+        /* Right Side: Information */
+        .product-info {
+            flex: 1; 
+        }
+
+        .product-info h1 {
+            margin-top: 0;
+            font-size: 28px;
+            color: #1a1a1a;
+        }
+
+        .product-price {
+            font-size: 24px;
+            font-weight: 900;
+            color: #0066cc;
+            margin-bottom: 20px;
+        }
+
+        .product-description {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .specs-list {
+            list-style-type: none; 
+            padding: 0;
+            margin-bottom: 40px;
+        }
+
+        .specs-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eaeaea;
+            color: #333;
+        }
+
+        .large-btn {
+            padding: 15px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo-container">
+            <h2 class="logo-text">KINETIC<span>+</span></h2>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Equipment</a>
+        </div>
+    </nav>
+
+    <!-- Product Details Section -->
+    <div class="product-container">
+        
+        <!-- Left Side: Photos and Videos -->
+        <div class="product-media">
+            <!-- Main Display Video/Image -->
+            <div class="main-media">
+                <!-- Image Tag -->
+                <img src="https://images.unsplash.com/photo-1579502283993-9c869fb13b18?q=80&w=800&auto=format&fit=crop" alt="Ultrasound Therapy Unit">
+                
+                <!-- Example of how to add a video instead of an image: -->
+                <!-- <video controls autoplay loop muted>
+                        <source src="your-video-file.mp4" type="video/mp4">
+                     </video> -->
+            </div>
+            
+            <!-- Small Thumbnails -->
+            <div class="thumbnail-gallery">
+                <img src="https://images.unsplash.com/photo-1579502283993-9c869fb13b18?q=80&w=200&auto=format&fit=crop" alt="Angle 1">
+                <img src="https://via.placeholder.com/100" alt="Angle 2">
+                <img src="https://via.placeholder.com/100" alt="Angle 3">
+            </div>
+        </div>
+
+        <!-- Right Side: Text and Details -->
+        <div class="product-info">
+            <h1>Clinical Ultrasound Therapy Unit</h1>
+            <p class="product-price">₹24,999/-</p>
+            
+            <p class="product-description">
+                Advanced continuous and pulsed ultrasound therapy machine designed for deep tissue healing, pain relief, and muscle spasm reduction. Ideal for professional physiotherapy clinics across Kerala.
+            </p>
+
+            <h3>Technical Specifications:</h3>
+            <ul class="specs-list">
+                <li><strong>Frequency:</strong> 1 MHz & 3 MHz</li>
+                <li><strong>Modes:</strong> Continuous & Pulsed</li>
+                <li><strong>Display:</strong> Digital LCD Interface</li>
+                <li><strong>Warranty:</strong> 1 Year Manufacturer Replacement</li>
+            </ul>
+
+            <button class="btn large-btn">Contact to Purchase</button>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-columns">
+            <div class="footer-col" style="flex: 2;">
+                <h4>Kinetic Plus</h4>
+                <p>Kinetic is Physiotherapy Equipment Supplier in Kerala, India.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact numbers</h4>
+                <p>📞 +91 484 - 3717338</p>
+            </div>
+            <div class="footer-col">
+                <h4>Email us</h4>
+                <p>✉️ kinetic-pluss@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>© 2026 Kinetic Plus: equipment suppliers.</div>
+        </div>
+    </footer>
+
+</body>
+</html>

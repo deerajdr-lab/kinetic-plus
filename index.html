@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinetic Plus : Advancing Physical Therapy</title>
+    <style>
+        /* 1. General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5; /* Light grey background for the page */
+            color: #1a1a1a;
+        }
+
+        /* 2. Navigation Bar */
+        nav {
+            background-color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        /* Styling the text logo to look like the image if you don't use the actual image file yet */
+        .logo-text {
+            font-size: 24px;
+            font-weight: 900;
+            font-style: italic;
+            letter-spacing: -1px;
+            color: #000;
+            margin: 0;
+        }
+        .logo-text span {
+            color: #0066cc; /* The Kinetic Plus Blue */
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 25px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        .nav-links a:hover {
+            color: #0066cc;
+        }
+
+        /* 3. Hero Section (Replicating the diagonal split background) */
+        .hero {
+            /* Using a linear gradient to fake the angled blue/black background from the mockup */
+            background: linear-gradient(110deg, #0056b3 40%, #000000 40%); 
+            color: white;
+            padding: 80px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 300px;
+        }
+        .hero-text {
+            max-width: 50%;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+        .hero h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            max-width: 80%;
+            line-height: 1.5;
+        }
+        .hero-image {
+            width: 40%;
+            text-align: right;
+        }
+        /* Placeholder for the robotic arm machine in the hero */
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* 4. Equipment Section */
+        .products-section {
+            background-color: white;
+            padding: 50px;
+            border-radius: 30px 30px 0 0; /* Curves the top of the white section like the mockup */
+            margin-top: -20px; /* Pulls it up slightly over the hero */
+            position: relative;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+        .section-header h2 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .malayalam-text {
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* The Grid */
+        .grid {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        
+        /* Product Card Styling matching the mockup exactly */
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            width: 240px;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+        }
+        .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: contain; /* Ensures the whole machine is visible */
+            margin-bottom: 15px;
+        }
+        .card h3 {
+            font-size: 16px;
+            margin: 0 0 10px 0;
+            color: #1a1a1a;
+        }
+        .card p {
+            font-size: 12px;
+            color: #666;
+            margin: 0 0 15px 0;
+            line-height: 1.4;
+            flex-grow: 1; /* Pushes price and button to bottom */
+        }
+        .price {
+            font-size: 18px;
+            color: #1a1a1a;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        .btn {
+            background: #0066cc; /* Match mockup blue */
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #0052a3;
+        }
+
+        /* 5. Footer matching the mockup */
+        footer {
+            background-color: #e6f0f9; /* Light blue tint */
+            padding: 40px 60px 20px 60px;
+            font-size: 13px;
+            color: #333;
+        }
+        .footer-columns {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .footer-col {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .footer-col h4 {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #000;
+        }
+        .footer-col p {
+            margin: 5px 0;
+            color: #555;
+            line-height: 1.6;
+        }
+        .footer-bottom {
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+        }
+        
+        /* Utility for bold Malayalam text in footer */
+        .footer-malayalam {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo-container">
+            <!-- Replace this text with an <img src="logo.jpg"> tag once the file is in your folder -->
+            <h2 class="logo-text">KINETIC<span>+</span></h2>
+        </div>
+        <div class="nav-links">
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-text">
+            <h1>Kinetic Plus: Advanced Physiotherapy Equipments in Kerala.</h1>
+            <p>Explore advanced solutions for your clinical needs across Kerala.</p>
+        </div>
+        <div class="hero-image">
+             <!-- Placeholder for the large hero image -->
+             <!-- <img src="path-to-your-robot-image.jpg" alt="Advanced Physiotherapy Robot"> -->
+        </div>
+    </div>
+
+    <!-- Equipment Viewer -->
+    <div class="products-section">
+        
+        <div class="section-header">
+            <h2>Featured Equipment in Kerala</h2>
+        </div>
+
+        <div class="grid">
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-columns">
+            <div class="footer-col" style="flex: 2;">
+                <h4>Kinetic Plus</h4>
+                <p>Kinetic is Physiotherapy Equipment Supplier in Kerala, India. </p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact numbers</h4>
+                <p>📞 +91 484 - 3717338</p>
+            </div>
+            <div class="footer-col">
+                <h4>Email us</h4>
+                <p>✉️ kinetic-pluss@gmail.com</p>
+            </div>
+            <div class="footer-col">
+                <h4>Social media on</h4>
+                <p>f | X | Instagram | YT | In</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>© 2026 <a href="admin.html" style="color: inherit; text-decoration: none; cursor: default;">Kinetic Plus</a>: equipment suppliers.</div>
+            <div>Stedical-esquipment sumpiers</div>
+        </div>
+    </footer>
+
+    <!-- Dynamic Data Loading Script -->
+    <script>
+        async function fetchAndDisplayEquipment() {
+            try {
+                const response = await fetch('/api/get-equipment');
+                const equipmentList = await response.json();
+                
+                const grid = document.querySelector('.grid');
+                grid.innerHTML = '';
+                
+                // If there is no equipment in the database, show the Under Development message
+                if (equipmentList.length === 0) {
+                    grid.innerHTML = `
+                        <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                            <h2 style="color: #0056b3; margin-top: 0; font-size: 24px;">🔧 Catalog Under Development</h2>
+                            <p style="color: #555; font-size: 16px;">We are currently updating our physiotherapy equipment inventory. Please check back soon.</p>
+                        </div>
+                    `;
+                    return; // Stop the script here so it doesn't try to build empty cards
+                }
+                
+                // If there IS equipment, build the cards normally
+                equipmentList.forEach(machine => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    
+                    card.innerHTML = `
+                        <img src="${machine.imageUrl}" alt="${machine.name}">
+                        <h3>${machine.name}</h3>
+                        <p>${machine.description}</p>
+                        <div class="price">₹${machine.price}/-</div>
+                        <a href="product.html" class="btn" style="display: block; text-align: center; text-decoration: none; box-sizing: border-box;">View Now</a>
+                    `;
+                    
+                    grid.appendChild(card);
+                });
+                
+            } catch (error) {
+                console.error("Error connecting to the database:", error);
+            }
+        }
+
+        window.onload = fetchAndDisplayEquipment;
+    </script>
+
+</body>
+</html>
