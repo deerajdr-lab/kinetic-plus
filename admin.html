@@ -173,6 +173,10 @@
 
     <!-- Custom Node.js Connection Script -->
     <script>
+        // Kicks user back to login if they aren't verified
+if (localStorage.getItem('adminKey') !== 'verified') {
+    window.location.href = 'login.html';
+}
         // 1. Upload Logic
         document.getElementById('add-product-form').addEventListener('submit', async (e) => {
             e.preventDefault(); 

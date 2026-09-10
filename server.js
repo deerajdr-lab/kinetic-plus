@@ -89,6 +89,14 @@ app.post('/api/delete-equipment', async (req, res) => {
 
 // Start Server
 const PORT = process.env.PORT || 3000;
+// Admin Login Check
+app.post('/api/login', (req, res) => {
+    if (req.body.password === process.env.ADMIN_PASSWORD) {
+        res.json({ success: true });
+    } else {
+        res.status(401).json({ success: false, message: 'Incorrect password' });
+    }
+});
 app.listen(PORT, () => {
     console.log(`Cloud-ready server running on port ${PORT}`);
 });
