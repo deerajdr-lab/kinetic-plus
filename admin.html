@@ -149,6 +149,7 @@
                 <label for="product-price">Price (₹)</label>
                 <input type="number" id="product-price" placeholder="e.g., 24999" required>
             </div>
+            <textarea id="specifications" placeholder="Technical Specs (e.g., Frequency: 1 MHz, Warranty: 1 Year)" required style="width:100%; padding:10px; margin-bottom:15px;"></textarea>
 
             <div class="form-group">
                 <label for="product-image">Upload Equipment Image</label>
@@ -169,6 +170,7 @@
     <div class="admin-container" style="margin-top: 20px;">
         <h1>Manage Inventory</h1>
         <div id="inventory-list">Loading inventory...</div>
+        <button onclick="logout()" style="background-color: #c01627; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer; margin-bottom: 20px; width: 100%; font-size: 16px;">Log Out</button>
     </div>
 
     <!-- Custom Node.js Connection Script -->
@@ -192,6 +194,7 @@ if (localStorage.getItem('adminKey') !== 'verified') {
             formData.append('name', document.getElementById('product-name').value);
             formData.append('price', document.getElementById('product-price').value);
             formData.append('description', document.getElementById('product-desc').value);
+            formData.append('specifications', document.getElementById('specifications').value);
             
             const fileInput = document.getElementById('product-image');
             formData.append('image', fileInput.files[0]);
@@ -279,6 +282,13 @@ if (localStorage.getItem('adminKey') !== 'verified') {
 
         // 4. Run loadInventory when the page opens
         window.onload = loadInventory;
+        // Logout Function
+function logout() {
+    // 1. Delete the digital stamp
+    localStorage.removeItem('adminKey');
+    // 2. Redirect back to the login page
+    window.location.href = 'login.html';
+}
     </script>
 
 </body>

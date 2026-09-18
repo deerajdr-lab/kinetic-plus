@@ -36,6 +36,7 @@ const equipmentSchema = new mongoose.Schema({
     name: String,
     price: Number,
     description: String,
+    specifications: String,
     imageUrl: String
 });
 const Equipment = mongoose.model('Equipment', equipmentSchema);
@@ -58,6 +59,7 @@ app.post('/api/add-equipment', upload.single('image'), async (req, res) => {
             name: req.body.name,
             price: req.body.price,
             description: req.body.description,
+            specifications: req.body.specifications,
             imageUrl: req.file.path 
         });
 
