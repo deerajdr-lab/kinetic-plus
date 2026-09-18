@@ -217,6 +217,72 @@
             margin-top: 15px;
             color: #000;
         }
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            /* Compact Navigation */
+            nav {
+                flex-direction: column;
+                padding: 15px 20px;
+                gap: 12px;
+                text-align: center;
+            }
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+            .nav-links a {
+                margin: 0;
+                font-size: 14px;
+            }
+
+            /* Responsive Hero */
+            .hero {
+                padding: 40px 20px;
+                min-height: auto;
+            }
+            .hero::after {
+                display: none; /* Disables clip-path overlay on small screens so text stays readable */
+            }
+            .hero-text {
+                max-width: 100%;
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+            .hero p {
+                max-width: 100%;
+                font-size: 1rem;
+            }
+
+            /* Product Grid */
+            .grid-container {
+                padding: 25px 15px;
+            }
+            .grid {
+                grid-template-columns: 1fr; /* Full-width single column on small screens */
+                gap: 20px;
+            }
+
+            /* Stack Footer Columns */
+            footer {
+                padding: 30px 20px 15px 20px;
+            }
+            .footer-columns {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -229,7 +295,7 @@
         </div>
         <div class="nav-links">
             <a href="#">About Us</a>
-            <a href="#">Contact</a>
+            <a href="contact.html">Contact</a>
         </div>
     </nav>
 

@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clinical Ultrasound Therapy Unit | Kinetic Plus</title>
+    <title>Kinetic Plus | Product Details</title>
     <style>
-        /* =========================================
-           1. General, Navigation, and Footer Styles 
-           ========================================= */
+        /* General Styles (Matches index.html) */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -16,6 +14,7 @@
             color: #1a1a1a;
         }
 
+        /* Navigation */
         nav {
             background-color: white;
             padding: 15px 50px;
@@ -24,163 +23,129 @@
             align-items: center;
             border-bottom: 1px solid #eaeaea;
         }
-        
-        .logo-text {
-            font-size: 24px;
-            font-weight: 900;
-            font-style: italic;
-            letter-spacing: -1px;
-            color: #000;
-            margin: 0;
-        }
-        
-        .logo-text span {
-            color: #0066cc;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            margin-left: 25px;
-            font-weight: 600;
-            font-size: 15px;
-        }
-        
-        .nav-links a:hover {
-            color: #0066cc;
-        }
+        .logo-text { font-size: 24px; font-weight: 900; font-style: italic; letter-spacing: -1px; margin: 0; }
+        .logo-text span { color: #0066cc; }
+        .nav-links a { text-decoration: none; color: #333; margin-left: 25px; font-weight: 600; font-size: 15px; }
+        .nav-links a:hover { color: #0066cc; }
 
-        footer {
-            background-color: #e6f0f9;
-            padding: 40px 60px 20px 60px;
-            font-size: 13px;
-            color: #333;
-            margin-top: 40px;
-        }
-        
-        .footer-columns {
+        /* Product Container - Desktop Layout */
+        .product-view-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
+            gap: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
-        
-        .footer-col {
+        .product-image-section {
             flex: 1;
-            margin-right: 20px;
         }
-        
-        .footer-bottom {
-            border-top: 1px solid #ccc;
-            padding-top: 20px;
+        .product-image-section img {
+            width: 100%;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid #eaeaea;
+        }
+        .product-info-section {
+            flex: 1.2;
             display: flex;
-            justify-content: space-between;
-            color: #666;
+            flex-direction: column;
         }
-
-        /* Generic Button Style */
+        .product-info-section h2 {
+            font-size: 32px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+        .product-price {
+            color: #0066cc;
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .product-description {
+            color: #555;
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
         .btn {
             background: #0066cc;
             color: white;
-            padding: 10px;
-            width: 100%;
+            padding: 15px;
             border: none;
             border-radius: 6px;
             cursor: pointer;
             font-weight: bold;
-            font-size: 14px;
-            transition: background 0.2s;
-        }
-        
-        .btn:hover {
-            background: #0052a3;
-        }
-
-        /* =========================================
-           2. Product Detail Page Styles 
-           ========================================= */
-        .product-container {
-            display: flex;
-            max-width: 1000px;
-            margin: 60px auto; 
-            gap: 50px;
-            padding: 30px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        /* Left Side: Media */
-        .product-media {
-            flex: 1; 
-        }
-
-        .main-media img, 
-        .main-media video {
-            width: 100%;
-            border-radius: 8px;
-            border: 1px solid #eaeaea;
-            object-fit: cover;
-        }
-
-        .thumbnail-gallery {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .thumbnail-gallery img {
-            width: 80px;
-            height: 80px;
-            border-radius: 6px;
-            cursor: pointer;
-            border: 2px solid transparent;
-            object-fit: cover;
-        }
-
-        .thumbnail-gallery img:hover {
-            border: 2px solid #0066cc; 
-        }
-
-        /* Right Side: Information */
-        .product-info {
-            flex: 1; 
-        }
-
-        .product-info h1 {
-            margin-top: 0;
-            font-size: 28px;
-            color: #1a1a1a;
-        }
-
-        .product-price {
-            font-size: 24px;
-            font-weight: 900;
-            color: #0066cc;
-            margin-bottom: 20px;
-        }
-
-        .product-description {
             font-size: 16px;
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 30px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
         }
+        .btn:hover { background: #0052a3; }
 
-        .specs-list {
-            list-style-type: none; 
-            padding: 0;
-            margin-bottom: 40px;
+        /* Footer */
+        footer {
+            background-color: #e6f0f9; padding: 40px 60px 20px 60px; font-size: 13px; color: #333; margin-top: 60px;
         }
+        .footer-columns { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .footer-col { flex: 1; margin-right: 20px; }
+        .footer-bottom { border-top: 1px solid #ccc; padding-top: 20px; display: flex; justify-content: space-between; color: #666; }
 
-        .specs-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid #eaeaea;
-            color: #333;
-        }
+        /* --- MOBILE RESPONSIVENESS (DEEP INTEGRATION) --- */
+        @media (max-width: 768px) {
+            /* Fix Navigation for Phones */
+            nav {
+                flex-direction: column;
+                padding: 15px 20px;
+                gap: 15px;
+                text-align: center;
+            }
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            .nav-links a {
+                margin: 0;
+                font-size: 14px;
+            }
 
-        .large-btn {
-            padding: 15px;
-            font-size: 18px;
+            /* Fix Product Container for Phones */
+            .product-view-container {
+                flex-direction: column; /* Stacks image on top, text on bottom */
+                margin: 20px 15px;
+                padding: 20px;
+                gap: 25px;
+            }
+            .product-info-section h2 {
+                font-size: 24px;
+            }
+            .product-price {
+                font-size: 22px;
+            }
+            .product-description {
+                font-size: 15px;
+            }
+
+            /* Fix Footer for Phones */
+            footer {
+                padding: 30px 20px 15px 20px;
+            }
+            .footer-columns {
+                flex-direction: column;
+                gap: 25px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -193,53 +158,17 @@
         </div>
         <div class="nav-links">
             <a href="index.html">Equipment</a>
+            <a href="#">Clinics</a>
+            <a href="#">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="#">Malayalam</a>
         </div>
     </nav>
 
-    <!-- Product Details Section -->
-    <div class="product-container">
-        
-        <!-- Left Side: Photos and Videos -->
-        <div class="product-media">
-            <!-- Main Display Video/Image -->
-            <div class="main-media">
-                <!-- Image Tag -->
-                <img src="https://images.unsplash.com/photo-1579502283993-9c869fb13b18?q=80&w=800&auto=format&fit=crop" alt="Ultrasound Therapy Unit">
-                
-                <!-- Example of how to add a video instead of an image: -->
-                <!-- <video controls autoplay loop muted>
-                        <source src="your-video-file.mp4" type="video/mp4">
-                     </video> -->
-            </div>
-            
-            <!-- Small Thumbnails -->
-            <div class="thumbnail-gallery">
-                <img src="https://images.unsplash.com/photo-1579502283993-9c869fb13b18?q=80&w=200&auto=format&fit=crop" alt="Angle 1">
-                <img src="https://via.placeholder.com/100" alt="Angle 2">
-                <img src="https://via.placeholder.com/100" alt="Angle 3">
-            </div>
-        </div>
-
-        <!-- Right Side: Text and Details -->
-        <div class="product-info">
-            <h1>Clinical Ultrasound Therapy Unit</h1>
-            <p class="product-price">₹24,999/-</p>
-            
-            <p class="product-description">
-                Advanced continuous and pulsed ultrasound therapy machine designed for deep tissue healing, pain relief, and muscle spasm reduction. Ideal for professional physiotherapy clinics across Kerala.
-            </p>
-
-            <h3>Technical Specifications:</h3>
-            <ul class="specs-list">
-                <li><strong>Frequency:</strong> 1 MHz & 3 MHz</li>
-                <li><strong>Modes:</strong> Continuous & Pulsed</li>
-                <li><strong>Display:</strong> Digital LCD Interface</li>
-                <li><strong>Warranty:</strong> 1 Year Manufacturer Replacement</li>
-            </ul>
-
-            <button class="btn large-btn">Contact to Purchase</button>
-        </div>
-
+    <!-- Dynamic Product Container -->
+    <div id="single-product-container" class="product-view-container">
+        <!-- The text below shows briefly while the server fetches the image -->
+        <h2 style="text-align: center; width: 100%; color: #0066cc;">Loading equipment details...</h2>
     </div>
 
     <!-- Footer -->
@@ -259,9 +188,61 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <div>© 2026 Kinetic Plus: equipment suppliers.</div>
+            <div>© 2026 <a href="admin.html" style="color: inherit; text-decoration: none; cursor: default;">Kinetic Plus</a>: equipment suppliers.</div>
         </div>
     </footer>
+
+    <!-- Script to Fetch the Correct Product from the Database -->
+    <script>
+        async function loadSpecificProduct() {
+            // 1. Read the exact product ID from the web address
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+
+            // If someone opens product.html directly without clicking a product first
+            if (!productId) {
+                document.getElementById('single-product-container').innerHTML = `
+                    <div style="text-align: center; width: 100%;">
+                        <h2>No product selected.</h2>
+                        <a href="index.html" class="btn" style="display: inline-block; padding: 10px 20px;">Go Back to Equipment</a>
+                    </div>`;
+                return;
+            }
+
+            try {
+                // 2. Ask your live Render server for this specific item (No localhost here!)
+                const response = await fetch(`/api/get-equipment/${productId}`);
+                const product = await response.json();
+
+                // 3. Inject the real image, title, price, and description into the HTML
+                document.getElementById('single-product-container').innerHTML = `
+                    <div class="product-image-section">
+                        <img src="${product.imageUrl}" alt="${product.name}">
+                    </div>
+                    <div class="product-info-section">
+                        <h2>${product.name}</h2>
+                        <h3 class="product-price">₹${product.price}/-</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 25px;">
+    <h4 style="margin-top: 0; margin-bottom: 10px;">Technical Specifications:</h4>
+    <p style="margin: 0; white-space: pre-line; color: #444;">${product.specifications || 'No specifications provided.'}</p>
+</div>
+
+<a href="mailto:kinetic-pluss...
+                        
+                        <!-- Automatically fills the email subject line with the machine's name -->
+                        <a href="mailto:kinetic-pluss@gmail.com?subject=Purchase Inquiry: ${product.name}" class="btn">Contact to Purchase</a>
+                    </div>
+                `;
+            } catch (error) {
+                console.error("Error loading product:", error);
+                document.getElementById('single-product-container').innerHTML = '<h2 style="color: red; text-align: center; width: 100%;">Error loading product details. Please refresh the page.</h2>';
+            }
+        }
+
+        // Run this function the moment the page loads
+        window.onload = loadSpecificProduct;
+    </script>
 
 </body>
 </html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinetic Plus | Contact Us</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #1a1a1a;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .logo-text { font-size: 24px; font-weight: 900; font-style: italic; letter-spacing: -1px; margin: 0; }
+        .logo-text span { color: #0066cc; }
+        .nav-links a { text-decoration: none; color: #333; margin-left: 25px; font-weight: 600; font-size: 15px; }
+        .nav-links a:hover { color: #0066cc; }
+
+        /* Contact Layout Container */
+        .contact-wrapper {
+            max-width: 1000px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        
+        /* Blue Info Column */
+        .contact-info {
+            flex: 1;
+            background: #0066cc;
+            color: white;
+            padding: 50px 40px;
+        }
+        .contact-info h2 { margin-top: 0; font-size: 28px; }
+        .contact-info p { margin-bottom: 30px; line-height: 1.6; font-size: 16px; color: #e6f0f9; }
+        .contact-info .detail { display: flex; align-items: center; margin-bottom: 20px; font-size: 16px; font-weight: 500; }
+        .contact-info .detail span { margin-left: 15px; }
+        
+        /* Form Column */
+        .contact-form {
+            flex: 1.5;
+            padding: 50px 40px;
+        }
+        .contact-form h2 { margin-top: 0; font-size: 28px; color: #1a1a1a; margin-bottom: 25px;}
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #333; font-size: 14px; }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 15px; font-family: inherit;
+        }
+        .form-group textarea { resize: vertical; height: 120px; }
+        .btn {
+            background: #0066cc; color: white; padding: 15px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 16px; width: 100%; text-transform: uppercase;
+        }
+        .btn:hover { background: #0052a3; }
+
+        /* Footer */
+        footer { background-color: #e6f0f9; padding: 40px 60px 20px 60px; font-size: 13px; color: #333; margin-top: 60px; }
+        .footer-columns { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .footer-col { flex: 1; margin-right: 20px; }
+        .footer-bottom { border-top: 1px solid #ccc; padding-top: 20px; display: flex; justify-content: space-between; color: #666; }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; padding: 15px 20px; gap: 15px; text-align: center; }
+            .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+            .nav-links a { margin: 0; font-size: 14px; }
+            
+            .contact-wrapper { flex-direction: column; margin: 20px 15px; }
+            .contact-info, .contact-form { padding: 30px 20px; }
+            
+            footer { padding: 30px 20px 15px 20px; }
+            .footer-columns { flex-direction: column; gap: 25px; }
+            .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo-container">
+            <h2 class="logo-text">KINETIC<span>+</span></h2>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Equipment</a>
+            <a href="#">Clinics</a>
+            <a href="#">About Us</a>
+            <!-- Active link points here -->
+            <a href="contact.html" style="color: #0066cc;">Contact</a> 
+            <a href="#">Malayalam</a>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <div class="contact-wrapper">
+        <!-- Blue Info Column -->
+        <div class="contact-info">
+            <h2>Get in Touch</h2>
+            <p>Whether you have a question about our physiotherapy equipment, pricing, or delivery across Kerala, our team is ready to help.</p>
+            
+            <div class="detail">
+                <span>📞</span>
+                <span>+91 484 - 3717338</span>
+            </div>
+            <div class="detail">
+                <span>✉️</span>
+                <span>kinetic-pluss@gmail.com</span>
+            </div>
+            <div class="detail">
+                <span>📍</span>
+                <span>Kerala, India</span>
+            </div>
+        </div>
+
+        <!-- Form Column -->
+        <div class="contact-form">
+            <h2>Send a Message</h2>
+            <form action="mailto:kinetic-pluss@gmail.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="Name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number (Optional)</label>
+                    <input type="text" id="phone" name="Phone Number" placeholder="Enter your phone number">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="Message" placeholder="How can we help you?" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send via Email App</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-columns">
+            <div class="footer-col" style="flex: 2;">
+                <h4>Kinetic Plus</h4>
+                <p>Kinetic is Physiotherapy Equipment Supplier in Kerala, India.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact numbers</h4>
+                <p>📞 +91 484 - 3717338</p>
+            </div>
+            <div class="footer-col">
+                <h4>Email us</h4>
+                <p>✉️ kinetic-pluss@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>© 2026 <a href="admin.html" style="color: inherit; text-decoration: none; cursor: default;">Kinetic Plus</a>: equipment suppliers.</div>
+        </div>
+    </footer>
+
+</body>
+</html>
